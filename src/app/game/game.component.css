@@ -1,0 +1,32 @@
+@media only screen and (min-width : 1200px) {
+    .container { max-width: 1500px; } 
+}
+
+.first-row {
+  flex: 0 1 auto;
+  /* The above is shorthand for:
+  flex-grow: 0,
+  flex-shrink: 1,
+  flex-basis: auto
+  */
+}
+
+.second-row {
+  flex: 1 1 auto;
+}
+
+.your-turn-label {
+    display: none;
+}
+
+@media (max-width: 991px) {
+    .your-turn-label {
+        display: inline;
+        background-color: #cfc;
+        border: 1px solid green;
+        font-size: 14pt;
+        font-weight: bolder;
+        border-radius: 6px;
+        text-align: center;
+    }
+}

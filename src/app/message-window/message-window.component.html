@@ -1,0 +1,18 @@
+<div class="d-flex flex-column">
+<div class="my-form-field d-flex">
+  <mat-form-field appearance="outline" (keydown.enter)="submitMessage()">
+    <mat-label>Type message</mat-label>
+    <input matInput [(ngModel)]='messageToSend'>
+  </mat-form-field>
+  <div class="m-1">
+    <button (click)="submitMessage()" class="btn btn-light my-button">
+      ⮚
+    </button>
+  </div>
+</div>
+<div id="message-window-area-inner-inner">
+  <ul class="col">
+      <li *ngFor="let message of currentMessages" class="message-info">{{message}}</li>
+  </ul>
+</div>
+</div>

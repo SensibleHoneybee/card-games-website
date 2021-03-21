@@ -1,0 +1,51 @@
+<div class="d-flex px-2 py-0 py-md-2 px-md-4 bg-dark border-bottom shadow-sm">
+  <a *ngIf="!currentGame" class="my-0 mr-auto font-weight-normal navbar-brand" href="#">Card Games</a>
+  <a *ngIf="currentGame" class="my-0 mr-auto font-weight-normal navbar-brand" href="#">{{currentGame.gameName}}</a>
+  <nav class="my-2 my-md-1 mr-md-3">
+    <ul class="navbar-nav mr-auto list-group list-group-horizontal">
+      <li class="nav-item mr-2 mt-2" *ngIf="currentGame">
+        <label class="nav-label">Game Code: {{currentGame.gameCode}}</label>
+      </li>
+    </ul>
+  </nav>
+  <nav class="navbar navbar-static-top d-flex justify-content-end mt-2 mt-md-0" role="navigation">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed bg-dark border-0" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <div class="icon-bar"></div>
+          <div class="icon-bar"></div>
+          <div class="icon-bar"></div>
+      </button>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="nav-item d-flex justify-content-end">
+          <a class="menu-item-a nav-link text-warning py-1" routerLink="/create-game"><label class="menu-item-label position-absolute">Create Game</label></a>
+        </li>
+        <li class="nav-item d-flex justify-content-end">
+          <a class="menu-item-a nav-link text-warning py-1" routerLink="/join-game"><label class="menu-item-label position-absolute">Join Game</label></a>
+        </li>
+        <li class="nav-item d-flex justify-content-end">
+          <a class="menu-item-a nav-link text-warning py-1" routerLink="/rejoin-game"><label class="menu-item-label position-absolute">Rejoin Game</label></a>
+        </li>
+        <hr class="divider w-100" *ngIf="isAdmin"/>
+        <li class="nav-item d-flex justify-content-end" *ngIf="isAdmin">
+          <a class="menu-item-a nav-link text-warning py-1" [routerLink]="" (click)="undoLastMove()">
+            <label class="menu-item-label position-absolute">↶ Undo Move</label>
+          </a>
+        </li>
+        <li class="nav-item d-flex justify-content-end" *ngIf="isAdmin">
+          <a class="menu-item-a nav-link text-warning py-1" [routerLink]="" (click)="shuffleAndMoveCards()">
+            <label class="menu-item-label position-absolute">◀️ Shuffle and Move</label>
+          </a>
+        </li>
+        <li class="nav-item d-flex justify-content-end" *ngIf="isAdmin" >
+          <a class="menu-item-a nav-link text-warning py-1" [routerLink]="" (click)="shuffleAndMoveCards()">
+            <label class="menu-item-label position-absolute">Dummy</label>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>

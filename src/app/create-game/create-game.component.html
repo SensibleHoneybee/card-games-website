@@ -1,0 +1,45 @@
+<div id="login">
+    <div class="container">
+        <div id="login-row" class="row justify-content-center align-items-center">
+            <div id="login-column" class="col-md-6">
+                <div id="login-box" class="col-md-12">
+                    <form [formGroup]="loginForm" id="login-form" class="form" (ngSubmit)="onSubmit()">
+                      <h3 class="text-center text-info">Start new card game</h3>
+                      <div class="form-group">
+                          <label for="gameName">Game name</label>
+                          <input type="text" formControlName="gameName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.gameName.errors }" />
+                          <div *ngIf="submitted && f.gameName.errors" class="invalid-feedback">
+                              <div *ngIf="f.gameName.errors.required">Game name is required</div>
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <label for="username">Username</label>
+                          <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+                          <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                              <div *ngIf="f.username.errors.required">Username is required</div>
+                          </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="yourName">Your name</label>
+                        <input type="text" formControlName="yourName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.yourName.errors }" />
+                        <div *ngIf="submitted && f.yourName.errors" class="invalid-feedback">
+                            <div *ngIf="f.yourName.errors.required">Your name is required</div>
+                        </div>
+                     </div>
+                      <div class="form-group">
+                        <label for="numberOfCardsToDeal">Number of cards to deal</label>
+                        <input type="number" formControlName="numberOfCardsToDeal" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.numberOfCardsToDeal.errors }" />
+                        <div *ngIf="submitted && f.numberOfCardsToDeal.errors" class="invalid-feedback">
+                            <div *ngIf="f.numberOfCardsToDeal.errors.required">Number of cards to deal is required</div>
+                        </div>
+                    </div>
+                      <div class="form-group">
+                        <button id="create-game" [disabled]="loading" class="btn btn-primary">Create Game</button>
+                        <img *ngIf="loading" class="pl-3" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+                    </div>
+                  </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

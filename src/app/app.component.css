@@ -1,0 +1,8 @@
+div.whole-page {
+    height: 90vh;
+    width: 100vw;
+}
+
+.content {
+    height: 100%;
+}

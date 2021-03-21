@@ -1,0 +1,86 @@
+<div class="d-flex flex-column h-100 px-1">
+
+  <div class="container first-row">
+  <div class="row">
+
+    <div *ngIf="currentGameState === 'Started'" class="col-xl-8 col-lg-7 my-1 my-md-2">
+      <div class="card shadow h-100">
+        <!-- Card Header - Dropdown -->
+        <div class="d-none d-md-flex card-header px-2 px-md-3 py-1 py-md-2 flex-row align-items-center justify-content-between">
+          <h6 class="m-1 mr-auto font-weight-bold text-primary">{{currentPlayerInfo.playerName}}'s hand</h6>
+          <div>
+            <label *ngIf="isMyTurn" class="your-turn-label px-1">Your turn</label>
+          </div>
+        </div>
+        <app-hand></app-hand>
+      </div>
+    </div>
+
+    <div *ngIf="currentGameState === 'Started'" class="col-xl-4 col-lg-5 my-1 my-md-2">
+      <div class="card shadow h-100">
+        <!-- Card Header - No Dropdown -->
+        <div class="d-none d-md-flex card-header px-2 px-md-3 py-2 py-md-3 flex-row align-items-center justify-content-between">
+          <h6 class="m-0 font-weight-bold text-primary">Deck</h6>
+        </div>
+        <app-decks></app-decks>
+      </div>
+    </div>
+
+    <div *ngIf="currentGameState === 'Created'" class="col-12 my-1 my-md-2">
+      <div class="card shadow h-100">
+        <!-- Card Header - No Dropdown -->
+        <div class="d-none d-md-flex card-header px-2 px-md-3 py-2 py-md-3 flex-row align-items-center justify-content-between">
+          <h6 class="m-0 font-weight-bold text-primary">Game</h6>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="ml-1">
+              <label class="text-info ml-4 mt-4">Waiting for players to join, after which the game will begin...</label>
+            </div>
+          </div>
+          <div class="row m-5">
+            <div class="col-2 col-lg-5"></div>
+            <div class="col-8 col-lg-2 my-auto center-block">
+              <button (click)="startGame()" id="start-game" class="col btn btn-primary">Start Game</button>
+              <img *ngIf="loading" class="pl-3" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+            </div>
+            <div class="col-2 col-lg-5"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div *ngIf="currentGameState !== null" class="container second-row">
+  <div class="row">
+    <div class="col-lg-3 order-lg-2">
+      <div class="card shadow h-100">
+        <!-- Card Header - No Dropdown -->
+        <div class="d-none d-md-flex card-header px-2 px-md-3 py-2 py-md-3 flex-row align-items-center justify-content-between">
+          <h6 class="m-0 font-weight-bold text-primary">Players</h6>
+        </div>
+        <app-players></app-players>
+      </div>
+    </div>
+
+    <div class="col-lg-9 order-lg-1">
+      <div class="card shadow h-lg-100">
+        <!-- Card Header - Dropdown -->
+        <div class="d-none d-md-flex card-header px-2 px-md-3 py-2 py-md-3 flex-row align-items-center justify-content-between">
+          <h6 class="m-0 font-weight-bold text-primary">Messages</h6>
+        </div>
+        <div id="message-pane">
+          <app-message-window></app-message-window>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  </div>
+
+  <button id="openModal" #openModal [hidden]="true" (click)="openDialog()">Dialog</button>
+  <button id="openWinner" #openWinner [hidden]="true" (click)="openWinnerDialog()">Winner</button>
+
+</div>
+

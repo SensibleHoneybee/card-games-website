@@ -1,0 +1,50 @@
+<div class="deck-container container">
+  <div class="row" *ngFor="let deckPair of pairedUpDecks">
+    <div class="mx-auto d-flex flex-lg-column">
+      <app-deck [deck1]="deckPair.deck1" [deck2]="deckPair.deck2"></app-deck>
+      <div class="mt-1 d-flex flex-column" *ngIf="isMyTurn">
+        <label class="d-none d-lg-block your-turn-label your-turn-label-normal">It is your turn</label>
+        <div class="d-block d-lg-none your-turn-label your-turn-label-mini mt-1 ml-2">Your turn</div>
+        <div class="d-flex">
+          <button (click)="takeCardFromDeck1()" class="btn btn-primary narrow-button w-100 w-lg-50 mt-1 ml-2">Take card</button>
+          <!-- <button (click)="endTurn()" class="btn btn-warning d-none d-lg-block narrow-button w-50 mt-1 ml-2">End turn</button> -->
+          <button *ngIf="isCardy" (click)="setCardy(false)" class="btn btn-warning d-none d-lg-block narrow-button w-50 mt-1 ml-2">Not Cardy</button>
+          <button *ngIf="!isCardy" (click)="setCardy(true)" class="btn btn-warning d-none d-lg-block narrow-button w-50 mt-1 ml-2">Cardy</button>
+        </div>
+        <!-- <div class="d-flex flex-column flex-lg-row">
+          <div class="d-flex">
+            <div class="custom-control custom-switch mt-1 ml-2 m-lg-2 mt-lg-2">
+              <input type="checkbox" class="custom-control-input" id="reverse-checked" [(ngModel)]="reverseChecked">
+              <label class="d-block d-lg-none custom-control-label" for="reverse-checked">⇋</label>
+              <label class="d-none d-lg-block custom-control-label" for="reverse-checked">Kickback</label>
+            </div>
+            <div class="custom-control custom-switch mt-1 ml-2 m-lg-2 mt-lg-2">
+              <input type="checkbox" class="custom-control-input" id="jump-checked" [(ngModel)]="jumpChecked">
+              <label class="d-block d-lg-none custom-control-label" for="jump-checked">↷</label>
+              <label class="d-none d-lg-block ml-3 custom-control-label" for="jump-checked">Jump</label>
+            </div>
+          </div>
+          <div *ngIf="!cardy" class="custom-control custom-switch mt-1 ml-2 m-lg-2 mt-lg-2">
+            <input type="checkbox" class="custom-control-input" id="cardy-checked" [(ngModel)]="cardyChecked">
+            <label class="custom-control-label" for="cardy-checked">Cardy</label>
+          </div>
+          <div *ngIf="cardy" class="custom-control custom-switch mt-1 ml-2 m-lg-2 mt-lg-2">
+            <input type="checkbox" class="custom-control-input" id="finish-game-checked" [(ngModel)]="finishGameChecked">
+            <label class="custom-control-label ml-lg-3" for="finish-game-checked">Finish</label>
+          </div>
+        </div> -->
+        <!-- <button (click)="endTurn()" class="btn btn-warning d-block d-lg-none narrow-button mt-1 ml-2">End turn</button> -->
+        <button *ngIf="isCardy" (click)="setCardy(false)" class="btn btn-warning d-block d-lg-none narrow-button mt-1 ml-2">Not Cardy</button>
+        <button *ngIf="!isCardy" (click)="setCardy(true)" class="btn btn-warning d-block d-lg-none narrow-button mt-1 ml-2">Cardy</button>
+      </div>
+      <div class="mt-1 flex-column show-on-small-screen" *ngIf="inJumpedMode">
+        <div class="your-turn-label your-turn-label-mini mt-1 ml-2">You've been jumped</div>
+        <button (click)="respondToJump(true)" class="btn btn-danger narrow-button mt-1 ml-2">Block jump</button>
+        <button (click)="respondToJump(false)" class="btn btn-warning narrow-button mt-1 ml-2">Can't block</button>
+      </div>
+      <button *ngIf="isCardy && !isMyTurn && !inJumpedMode" (click)="setCardy(false)" class="btn btn-warning d-block m-2 mt-4 medium-button">Not Cardy</button>
+      <button *ngIf="!isCardy && !isMyTurn && !inJumpedMode" (click)="setCardy(true)" class="btn btn-warning d-block m-2 mt-4 medium-button">Cardy</button>
+      <label>{{currentHand.join('-')}}</label>
+    </div>
+  </div>
+</div> 

@@ -1,0 +1,39 @@
+@font-face {
+    font-family: 'Suit-Regular';
+    src: url("../../assets/fonts/suit-regular.eot");
+    src: url("../../assets/fonts/suit-regular.eot?#iefix") format('embedded-opentype'), url("../../assets/fonts/suit-regular.woff") format('woff'), url("../../assets/fonts/suit-regular.ttf") format('truetype'), url("../../assets/fonts/suit-regular.svg#suit-regular") format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Univers-Condensed';
+    src: url("../../assets/fonts/UniversCondensed.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+.button-row {
+    display: flex;
+    justify-content: space-around;
+}
+
+.suit-button {
+    width: 80px;
+    height: 120px;
+}
+
+.suit {
+    position: relative;
+    bottom: 5px;
+    cursor: pointer;
+    font-family: 'Suit-Regular', 'Univers-Condensed', 'Bahnschrift Condensed', 'Times New Roman', 'Times', serif;
+    font-size: 4em;
+}
+
+.suit-red {
+    color: #df0000;
+}
+
+.suit-black {
+    color: #000000;
+}

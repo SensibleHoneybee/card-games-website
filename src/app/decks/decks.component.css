@@ -1,0 +1,32 @@
+.deck-container {
+    display: block;
+}
+.your-turn-label {
+    background-color: #cfc;
+    border: 1px solid green;
+    font-weight: bolder;
+    border-radius: 6px;
+    text-align: center;
+}
+.your-turn-label-mini {
+    font-size: 12pt;
+    min-height: 25px;
+    margin-bottom: 0px;
+}
+.your-turn-label-normal {
+    font-size: 16pt;
+    margin-top: 14px;
+    margin-left: 6px;
+}
+.narrow-button {
+    padding-top: 0px;
+    padding-bottom: 3px;
+    padding-right: 8px;
+    height: 25px;
+}
+.medium-button {
+    padding-top: 0px;
+    padding-bottom: 3px;
+    padding-right: 8px;
+    height: 40px;
+}

@@ -1,0 +1,35 @@
+.navbar-brand {
+    font-size: 26px;
+    vertical-align: top;
+    color: #33ffff;
+}
+
+.navbar-brand a:hover {
+  color: #333333 !important;
+}
+
+.nav-label {
+  color: #33ffff !important;
+  font-size: 10pt;
+}
+
+.icon-bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 3px 0;
+}
+
+.divider {
+  border-top: 1px solid orange;
+}
+
+.menu-item-a {
+  height: 25px;
+}
+
+.menu-item-label {
+  right: 15px;
+  width: 300px;
+  text-align: right;
+}

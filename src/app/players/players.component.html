@@ -1,0 +1,43 @@
+<div class="d-flex d-lg-block p-lg-2">
+  <div class="d-flex" *ngFor="let player of currentAllPlayers">
+    <div class="create d-flex flex-column flex-lg-row"
+          [ngClass]="{
+            'create-self': isMe(player),
+            'create-other': !isMe(player),
+            'player-turn': isPlayerTurn(player)}">
+      <div class="card-count" [ngClass]="{'cardy': player.cardy}">
+        {{player.cardCount}}
+      </div>
+      <div class="left-bits d-flex flex-column flex-lg-row">
+        <label class="player-name">{{player.playerName}}</label>
+        <span class="d-none d-lg-inline-block direction-arrow" *ngIf="isPlayerTurnUp(player)">
+          🡅
+        </span>
+        <span class="d-none d-lg-inline-block direction-arrow" *ngIf="isPlayerTurnDown(player)">
+          🡇
+        </span>
+        <span class="d-block d-lg-none direction-arrow-mini" *ngIf="isPlayerTurnUp(player)">
+          ⇽
+        </span>
+        <span class="d-block d-lg-none direction-arrow-mini" *ngIf="isPlayerTurnDown(player)">
+          ⇾
+        </span>
+      </div>
+      <span class="d-none badge">
+        <a [routerLink]="" (click)="messagePlayer(player)">Message</a>
+      </span>
+      <span class="d-none d-lg-block badge" *ngIf="isAdmin && gameIsStarted && !isPlayerTurn(player)">
+        <a [routerLink]="" (click)="setNextPlayer(player, true)">Set 🡅</a>
+      </span>
+      <span class="d-none d-lg-block badge" *ngIf="isAdmin && gameIsStarted &&!isPlayerTurn(player)">
+        <a [routerLink]="" (click)="setNextPlayer(player, false)">Set 🡇</a>
+      </span>
+      <span class="d-none d-lg-block badge" *ngIf="isAdmin && canMovePlayerUp(player)">
+        <a [routerLink]="" (click)="changePlayerPosition(player, true)">Move 🡅</a>
+      </span>
+      <span class="d-none d-lg-block badge" *ngIf="isAdmin && canMovePlayerDown(player)">
+        <a [routerLink]="" (click)="changePlayerPosition(player, false)">Move 🡇</a>
+      </span>
+    </div>
+  </div>
+</div>

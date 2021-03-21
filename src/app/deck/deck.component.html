@@ -1,0 +1,8 @@
+<div class="decks-pair d-flex">
+  <div class="deck" (dblclick)="takeCardFromDeck1()">
+    <app-card-detail [card]="deck1.topCard" [hasCard]="deck1.hasCards" [isFaceUp]="deck1.isFaceUp"></app-card-detail>
+  </div>
+  <div class="deck" (dblclick)="takeCardFromDeck2()" cdkDropList id="deck-dragdrop" cdkDropListConnectedTo="hand-dragdrop" (cdkDropListDropped)="drop($event)">
+    <app-card-detail [card]="deck2.topCard" [hasCard]="deck2.hasCards" [isFaceUp]="deck2.isFaceUp"></app-card-detail>
+  </div>
+</div>

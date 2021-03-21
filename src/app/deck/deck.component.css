@@ -1,0 +1,23 @@
+.decks-pair {
+    justify-content: center;
+}
+
+.deck {
+    width: 180px;
+    height: 260px;
+    left: 10px;
+    top: 10px;
+    position: relative;
+}
+
+@media (max-width: 991px) {
+    .deck {
+        width: 100px;
+        height: 50px;
+        padding-bottom: 165px;
+    }
+
+    .decks-pair {
+        justify-content: left;
+    }
+}
