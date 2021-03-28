@@ -14,7 +14,7 @@ import { PlayDirection } from '../play-direction';
 import { MoveState } from '../move-state';
 import { MoveStateWithWinnerName } from '../move-state-with-winner-name';
 
-const WEBSERVICE_URL = "wss://pn450px1g3.execute-api.eu-west-2.amazonaws.com/Prod";
+const WEBSERVICE_URL = "wss://xxxxxxxx.execute-api.eu-west-2.amazonaws.com/Prod";
 
 @Injectable({
   providedIn: 'root'

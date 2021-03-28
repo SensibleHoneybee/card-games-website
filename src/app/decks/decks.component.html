@@ -44,7 +44,6 @@
       </div>
       <button *ngIf="isCardy && !isMyTurn && !inJumpedMode" (click)="setCardy(false)" class="btn btn-warning d-block m-2 mt-4 medium-button">Not Cardy</button>
       <button *ngIf="!isCardy && !isMyTurn && !inJumpedMode" (click)="setCardy(true)" class="btn btn-warning d-block m-2 mt-4 medium-button">Cardy</button>
-      <label>{{currentHand.join('-')}}</label>
     </div>
   </div>
 </div> 
