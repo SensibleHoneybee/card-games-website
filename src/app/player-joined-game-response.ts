@@ -1,4 +1,5 @@
 import { PlayerInfo } from './player-info';
+import { Deserializable } from './_helpers/deserializable';
 
 export class PlayerJoinedGameResponse implements Deserializable<PlayerJoinedGameResponse> {
     gameCode: string;

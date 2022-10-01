@@ -1,3 +1,5 @@
+import { Deserializable } from "./_helpers/deserializable";
+
 export class GameCreatedResponse implements Deserializable<GameCreatedResponse> {
     gameId: string;
     gameCode: string;

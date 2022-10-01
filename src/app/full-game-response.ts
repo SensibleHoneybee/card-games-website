@@ -3,6 +3,7 @@ import { PlayerInfo } from './player-info';
 import { VisibleDeck } from './visible-deck';
 import { PlayDirection } from './play-direction';
 import { MoveState } from './move-state';
+import { Deserializable } from './_helpers/deserializable';
 
 export class FullGameResponse implements Deserializable<FullGameResponse> {
     gameId: string;

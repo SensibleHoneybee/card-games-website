@@ -24,7 +24,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { SelectSuitDialogComponent } from './select-suit-dialog/select-suit-dialog.component';
-import { WinnerDialogComponent } from './winner-dialog/winner-dialog.component'
+import { WinnerDialogComponent } from './winner-dialog/winner-dialog.component';
 
 @NgModule({
   declarations: [
